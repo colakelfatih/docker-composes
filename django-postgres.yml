@@ -7,7 +7,8 @@ services:
         image: python:3.8-alpine
         container_name: django
         build: .
-        command: python3.8 manage.py runserver 0.0.0.0:80
+        #command: python3.8 manage.py runserver 0.0.0.0:80
+        command: gunicorn --bind 0.0.0.0:80 example_project.wsgi    
         ports:
             - 80:80
         env_file:
